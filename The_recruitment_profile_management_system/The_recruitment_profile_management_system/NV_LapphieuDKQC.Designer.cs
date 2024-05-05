@@ -30,6 +30,7 @@
         {
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -49,11 +50,22 @@
             this.label7.TabIndex = 18;
             this.label7.Text = "Phiếu đăng ký";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(224, 87);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(335, 39);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Lập phiếu quảng cáo";
+            // 
             // NV_LapphieuDKQC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label7);
             this.Name = "NV_LapphieuDKQC";
@@ -67,5 +79,6 @@
 
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label1;
     }
 }
