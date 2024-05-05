@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace The_recruitment_profile_management_system
 {
-    public partial class Form1 : Form
+    public partial class NV_LapphieuDKQC : Form
     {
-        public Form1()
+        public NV_LapphieuDKQC()
         {
             InitializeComponent();
         }
