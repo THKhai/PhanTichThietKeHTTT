@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DangKyThanhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DangKyThanhVien.Designer.cs">
+      <DependentUpon>DangKyThanhVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="DN_Dangkytuyendung.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DangKyThanhVien.resx">
+      <DependentUpon>DangKyThanhVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DN_Dangkytuyendung.resx">
       <DependentUpon>DN_Dangkytuyendung.cs</DependentUpon>
     </EmbeddedResource>

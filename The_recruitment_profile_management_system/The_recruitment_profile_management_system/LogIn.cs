@@ -12,6 +12,7 @@ namespace The_recruitment_profile_management_system
 {
     public partial class LogIn : Form
     {
+
         public LogIn()
         {
             InitializeComponent();
@@ -21,6 +22,16 @@ namespace The_recruitment_profile_management_system
         {
             DN_Dangkytuyendung DK = new DN_Dangkytuyendung();
             DK.Show();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LogIn_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
