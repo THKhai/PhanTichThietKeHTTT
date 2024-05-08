@@ -41,8 +41,6 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -58,7 +56,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(216, 129);
+            this.textBox1.Location = new System.Drawing.Point(216, 135);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(222, 22);
             this.textBox1.TabIndex = 3;
@@ -66,7 +64,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(118, 132);
+            this.label2.Location = new System.Drawing.Point(118, 138);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 16);
             this.label2.TabIndex = 4;
@@ -75,7 +73,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(444, 132);
+            this.label3.Location = new System.Drawing.Point(444, 138);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 16);
             this.label3.TabIndex = 5;
@@ -83,7 +81,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(510, 129);
+            this.textBox2.Location = new System.Drawing.Point(510, 135);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(132, 22);
             this.textBox2.TabIndex = 6;
@@ -91,7 +89,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Location = new System.Drawing.Point(216, 157);
+            this.dateTimePicker1.Location = new System.Drawing.Point(216, 163);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(426, 22);
             this.dateTimePicker1.TabIndex = 9;
@@ -101,7 +99,7 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker2.Location = new System.Drawing.Point(216, 185);
+            this.dateTimePicker2.Location = new System.Drawing.Point(216, 191);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(426, 22);
             this.dateTimePicker2.TabIndex = 11;
@@ -111,7 +109,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(99, 190);
+            this.label5.Location = new System.Drawing.Point(99, 196);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(111, 16);
             this.label5.TabIndex = 10;
@@ -120,7 +118,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(154, 246);
+            this.label6.Location = new System.Drawing.Point(154, 222);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 16);
             this.label6.TabIndex = 12;
@@ -128,9 +126,9 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(216, 243);
+            this.richTextBox1.Location = new System.Drawing.Point(216, 219);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(426, 131);
+            this.richTextBox1.Size = new System.Drawing.Size(426, 167);
             this.richTextBox1.TabIndex = 13;
             this.richTextBox1.Text = "";
             // 
@@ -152,27 +150,10 @@
             this.button2.Text = "Đăng ký";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(80, 216);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(130, 16);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Hình thức đăng tuyển";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(216, 213);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(426, 24);
-            this.comboBox1.TabIndex = 17;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(99, 163);
+            this.label4.Location = new System.Drawing.Point(99, 169);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(111, 16);
             this.label4.TabIndex = 18;
@@ -184,8 +165,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.richTextBox1);
@@ -220,8 +199,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label4;
     }
 }
