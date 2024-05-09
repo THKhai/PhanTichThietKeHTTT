@@ -88,12 +88,12 @@ insert into ThongTinDangTuyen values ('DT00000008',7,NULL,NULL,'automatic test',
 insert into ThongTinDangTuyen values ('DT00000009',5,NULL,NULL,'Dev','abcxyz',null);
 
 
-insert into doanhnghiep values ('7612837a3d','27 pham van bach','DNABC@gamil.com','Nguyen Thi A','QWE');
-insert into doanhnghiep values ('23dx234345','27 Nguyen Tat Thanh','DNBBS@gamil.com','Nguyen Thi B','QWE');
-insert into doanhnghiep values ('3653d1c452','27 Le Duan','DNTTC@gamil.com','Nguyen Thi C','QWE');
-insert into doanhnghiep values ('132478c234','27 An Binh','DNQAZ@gamil.com','Nguyen Thi D','QWE');
-insert into doanhnghiep values ('54235d1234','27 Nguyen Van Cu','DNERD@gamil.com','Nguyen Thi E','QWE');
-insert into doanhnghiep values ('234523d123','27 Hung Vuong','DNABS@gamil.com','Nguyen Thi F','QWE');
+insert into doanhnghiep values ('DN12837a3d','27 pham van bach','DNABC@gamil.com','Nguyen Thi A','QWE');
+insert into doanhnghiep values ('DNdx234345','27 Nguyen Tat Thanh','DNBBS@gamil.com','Nguyen Thi B','QWE');
+insert into doanhnghiep values ('DN53d1c452','27 Le Duan','DNTTC@gamil.com','Nguyen Thi C','QWE');
+insert into doanhnghiep values ('DN2478c234','27 An Binh','DNQAZ@gamil.com','Nguyen Thi D','QWE');
+insert into doanhnghiep values ('DN235d1234','27 Nguyen Van Cu','DNERD@gamil.com','Nguyen Thi E','QWE');
+insert into doanhnghiep values ('DN4523d123','27 Hung Vuong','DNABS@gamil.com','Nguyen Thi F','QWE');
 
 insert into TrangThai values ('DT00000001','UV00000001',9,1,null);
 insert into TrangThai values ('DT00000002','UV00000003',5,2,null);
@@ -107,9 +107,11 @@ insert into QuangCao values ('DN235d1234','DT00000003','Bao Giay','Chuyen Khoan'
 insert into QuangCao values ('DN2478c234','DT00000004','Mang','Chuyen Khoan',3223000);
 insert into QuangCao values ('DN53d1c452','DT00000005','Bao Giay','Chuyen Khoan',1323000);
 
-
-SELECT * FROM doanhnghiep
-alter session set "_ORACLE_SCRIPT"=true;
-create user 7612837a3d indentified by 123;
-
+create or replace view v_DNDangky
+as
+select * from ThongTinDangTuyen
+where 
+drop user DN12837a3d;
+create user DN12837a3d identified by 123;
+grant connect to DN12837a3d;
 

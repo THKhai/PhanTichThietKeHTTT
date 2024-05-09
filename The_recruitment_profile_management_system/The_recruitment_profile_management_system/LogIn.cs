@@ -80,7 +80,7 @@ namespace The_recruitment_profile_management_system
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Đăng Nhập Thất Bại: " + ex.Message, "Thất Bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không hợp lệ", "Đăng Nhập Thất Bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

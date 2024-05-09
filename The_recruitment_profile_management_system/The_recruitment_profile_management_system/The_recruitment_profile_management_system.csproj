@@ -62,6 +62,12 @@
     <Compile Include="DN_Dangkytuyendung.Designer.cs">
       <DependentUpon>DN_Dangkytuyendung.cs</DependentUpon>
     </Compile>
+    <Compile Include="DN_LichSuDangKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DN_LichSuDangKy.Designer.cs">
+      <DependentUpon>DN_LichSuDangKy.cs</DependentUpon>
+    </Compile>
     <Compile Include="DN_Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DN_Dangkytuyendung.resx">
       <DependentUpon>DN_Dangkytuyendung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DN_LichSuDangKy.resx">
+      <DependentUpon>DN_LichSuDangKy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DN_Menu.resx">
       <DependentUpon>DN_Menu.cs</DependentUpon>
