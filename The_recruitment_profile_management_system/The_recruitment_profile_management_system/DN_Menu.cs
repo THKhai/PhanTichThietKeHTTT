@@ -12,7 +12,8 @@ namespace The_recruitment_profile_management_system
 {
     public partial class DN_Menu : Form
     {
-        public DN_Menu()
+        string connectString;
+        public DN_Menu(string conStr)
         {
             InitializeComponent();
         }

@@ -101,8 +101,15 @@ insert into TrangThai values ('DT00000003','UV00000002',7,3,null);
 insert into TrangThai values ('DT00000008','UV00000004',7.5,1,null);
 insert into TrangThai values ('DT00000008','UV00000002',5,2,null);
 
-insert into QuangCao values ('7612837a3d','DT00000001','Bao Giay','Chuyen Khoan',3123000);
-insert into QuangCao values ('7612837a3d','DT00000002','Banner','Tien Mat',4123000);
-insert into QuangCao values ('54235d1234','DT00000003','Bao Giay','Chuyen Khoan',3123000);
-insert into QuangCao values ('132478c234','DT00000004','Mang','Chuyen Khoan',3223000);
-insert into QuangCao values ('3653d1c452','DT00000005','Bao Giay','Chuyen Khoan',1323000);
+insert into QuangCao values ('DN12837a3d','DT00000001','Bao Giay','Chuyen Khoan',3123000);
+insert into QuangCao values ('DN12837a3d','DT00000002','Banner','Tien Mat',4123000);
+insert into QuangCao values ('DN235d1234','DT00000003','Bao Giay','Chuyen Khoan',3123000);
+insert into QuangCao values ('DN2478c234','DT00000004','Mang','Chuyen Khoan',3223000);
+insert into QuangCao values ('DN53d1c452','DT00000005','Bao Giay','Chuyen Khoan',1323000);
+
+
+SELECT * FROM doanhnghiep
+alter session set "_ORACLE_SCRIPT"=true;
+create user 7612837a3d indentified by 123;
+
+
