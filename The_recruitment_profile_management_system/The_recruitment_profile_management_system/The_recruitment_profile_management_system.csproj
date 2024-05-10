@@ -33,7 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Oracle.DataAccess, Version=4.122.21.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64" />
     <Reference Include="Oracle.ManagedDataAccess">
       <HintPath>..\packages\Oracle.ManagedDataAccess.21.13.0\lib\net462\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
@@ -74,6 +73,12 @@
     <Compile Include="DN_Menu.Designer.cs">
       <DependentUpon>DN_Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="DuyetHoSoNhanVien\DuyetDKDN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DuyetHoSoNhanVien\DuyetDKDN.Designer.cs">
+      <DependentUpon>DuyetDKDN.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +96,12 @@
     </Compile>
     <Compile Include="NhanVien\ThongKeDoanhNghiepSapHetHan.designer.cs">
       <DependentUpon>ThongKeDoanhNghiepSapHetHan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NopHoSoUngTuyen\DangKyThanhVien_UV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NopHoSoUngTuyen\DangKyThanhVien_UV.Designer.cs">
+      <DependentUpon>DangKyThanhVien_UV.cs</DependentUpon>
     </Compile>
     <Compile Include="NV_Duyetthongtindangtuyen.cs">
       <SubType>Form</SubType>
@@ -112,6 +123,9 @@
     <EmbeddedResource Include="DN_Menu.resx">
       <DependentUpon>DN_Menu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DuyetHoSoNhanVien\DuyetDKDN.resx">
+      <DependentUpon>DuyetDKDN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NhanVien\ThongKeDoanhNghiepSapHetHan.resx">
       <DependentUpon>ThongKeDoanhNghiepSapHetHan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NopHoSoUngTuyen\DangKyThanhVien_UV.resx">
+      <DependentUpon>DangKyThanhVien_UV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NV_Duyetthongtindangtuyen.resx">
       <DependentUpon>NV_Duyetthongtindangtuyen.cs</DependentUpon>
@@ -149,5 +166,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

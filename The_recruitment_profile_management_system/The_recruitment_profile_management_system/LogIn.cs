@@ -45,6 +45,7 @@ namespace The_recruitment_profile_management_system
                 {
                     //connectString = $"Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=" + SERVICE_NAME + ")));User Id=" + id + ";Password=" + password + ";";
                     MessageBox.Show("Thao tác thất bại");
+                    return;
                 }
                 //connectString = "Data Source=(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = khainehaha)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = XE)));User Id = " + id + ";password =" + password + ";";
 
@@ -83,7 +84,7 @@ namespace The_recruitment_profile_management_system
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không hợp lệ", "Đăng Nhập Thất Bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -97,6 +98,18 @@ namespace The_recruitment_profile_management_system
         private void LogIn_Load(object sender, EventArgs e)
         {
             textBox2.PasswordChar = '*';
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SERVICE_NAME = "XE";
+            id = "sys";
+            password = "091202";
+            connectString = $"Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=" + SERVICE_NAME + ")));User Id=" + id + ";Password=" + password + ";DBA Privilege = SYSDBA;";
+            this.Hide();
+            DangKyThanhVien dk = new DangKyThanhVien(connectString);
+            dk.ShowDialog();
+            this.Show();
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using The_recruitment_profile_management_system.DuyetHoSoNhanVien;
 
 namespace The_recruitment_profile_management_system.NhanVien_UI
 {
@@ -28,6 +29,14 @@ namespace The_recruitment_profile_management_system.NhanVien_UI
         {
             ThongKeDoanhNghiepSapHetHan tk = new ThongKeDoanhNghiepSapHetHan(connect);
             tk.ShowDialog();
+            this.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DuyetDKDN a = new DuyetDKDN(connect);
+            this.Hide();
+            a.ShowDialog();
             this.Show();
         }
     }
