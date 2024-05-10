@@ -59,9 +59,7 @@ namespace The_recruitment_profile_management_system
                         this.Hide();
                         if (id.StartsWith("sys"))
                         {
-                            DN_Menu mn = new DN_Menu(connectString, textBox1.Text.ToString());
-                            mn.ShowDialog();
-                            this.Show();
+                            
                         }
                         else if (id.StartsWith("NV"))
                         {
