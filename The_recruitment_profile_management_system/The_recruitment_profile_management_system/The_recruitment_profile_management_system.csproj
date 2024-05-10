@@ -80,6 +80,18 @@
     <Compile Include="LogIn.Designer.cs">
       <DependentUpon>LogIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="NhanVien\NhanVien_Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien\NhanVien_Menu.designer.cs">
+      <DependentUpon>NhanVien_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\ThongKeDoanhNghiepSapHetHan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien\ThongKeDoanhNghiepSapHetHan.designer.cs">
+      <DependentUpon>ThongKeDoanhNghiepSapHetHan.cs</DependentUpon>
+    </Compile>
     <Compile Include="NV_Duyetthongtindangtuyen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +120,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\NhanVien_Menu.resx">
+      <DependentUpon>NhanVien_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\ThongKeDoanhNghiepSapHetHan.resx">
+      <DependentUpon>ThongKeDoanhNghiepSapHetHan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NV_Duyetthongtindangtuyen.resx">
       <DependentUpon>NV_Duyetthongtindangtuyen.cs</DependentUpon>
