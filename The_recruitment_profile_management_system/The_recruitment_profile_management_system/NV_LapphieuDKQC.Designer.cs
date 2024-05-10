@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,23 +40,6 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(231, 170);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(426, 24);
-            this.comboBox1.TabIndex = 19;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(159, 173);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 16);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Mã TTDT";
             // 
             // label1
             // 
@@ -158,8 +139,6 @@
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label7);
             this.Name = "NV_LapphieuDKQC";
             this.Text = "NV_LapphieuDKQC";
             this.ResumeLayout(false);
@@ -168,9 +147,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label2;

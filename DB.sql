@@ -87,7 +87,6 @@ insert into ThongTinDangTuyen values ('DT00000007',3,NULL,NULL,'tester','abcxyz'
 insert into ThongTinDangTuyen values ('DT00000008',7,NULL,NULL,'automatic test','abcxyz',null);
 insert into ThongTinDangTuyen values ('DT00000009',5,NULL,NULL,'Dev','abcxyz',null);
 
-
 insert into doanhnghiep values ('DN12837a3d','27 pham van bach','DNABC@gamil.com','Nguyen Thi A','QWE');
 insert into doanhnghiep values ('DNdx234345','27 Nguyen Tat Thanh','DNBBS@gamil.com','Nguyen Thi B','QWE');
 insert into doanhnghiep values ('DN53d1c452','27 Le Duan','DNTTC@gamil.com','Nguyen Thi C','QWE');
@@ -117,7 +116,14 @@ drop user DN12837a3d;
 create user DN12837a3d identified by 123;
 grant connect to DN12837a3d;
 grant select on v_DNDangky to DN12837a3d;
+grant select on ThongTinDangTuyen to DN12837a3d;
+grant insert on ThongTinDangTuyen to DN12837a3d;
+grant insert on QuangCao to DN12837a3d;
 
+select * from QuangCao
+select * from ThongTinDangTuyen
 connect DN12837a3d/123;
 select * from sys.v_DNDangky;
 
+select MAX(CAST(substr(MaTTDT, 3, length(MaTTDT) - 2) AS INT)) AS MaxValue
+FROM ThongTinDangTuyen;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -56,7 +57,7 @@ namespace The_recruitment_profile_management_system
                         this.Hide();
                         if (id.StartsWith("sys"))
                         {
-                            DN_Menu mn = new DN_Menu(connectString);
+                            DN_Menu mn = new DN_Menu(connectString, textBox1.Text.ToString());
                             mn.ShowDialog();
                             this.Show();
                         }
@@ -66,7 +67,7 @@ namespace The_recruitment_profile_management_system
                         }
                         else if (id.StartsWith("DN"))
                         {
-                            DN_Menu mn = new DN_Menu(connectString);
+                            DN_Menu mn = new DN_Menu(connectString, textBox1.Text.ToString());
                             mn.ShowDialog();
                             this.Show();
                         }
@@ -91,7 +92,7 @@ namespace The_recruitment_profile_management_system
 
         private void LogIn_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
