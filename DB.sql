@@ -134,3 +134,24 @@ drop user NV001;
 alter session set "_ORACLE_SCRIPT"=true; 
 create user NV001 identified by NV001;
 grant connect to NV001;
+
+select * from ThongTinDangTuyen;
+
+update ThongTinDangTuyen
+set ThoiGianKetThuc = TO_DATE('12-05-2024','DD-MM-YYYY')
+where MaTTDT = 'DT00000001';
+
+update ThongTinDangTuyen
+set ThoiGianKetThuc = TO_DATE('12-06-2024','DD-MM-YYYY')
+where MaTTDT = 'DT00000002';
+
+
+create or replace view v_NhanVien_DoanhNghiepSapHetHan
+as
+select DN.MaSoThue,QC.MaTTDT,DN.TenCty,TTDT.ThoiGianBatDau,TTDT.ThoiGianKetThuc from ThongTinDangTuyen TTDT join QuangCao QC on TTDT.MaTTDT = QC.MaTTDT join DoanhNghiep DN on DN.MaSoThue = QC.MaSoThue
+where TTDT.ThoiGianKetThuc - trunc(current_date) <= 3;
+
+grant select on sys.v_NhanVien_DoanhNghiepSapHetHan to NV001;
+
+conn NV001/NV001
+select * from sys.v_NhanVien_DoanhNghiepSapHetHan;
