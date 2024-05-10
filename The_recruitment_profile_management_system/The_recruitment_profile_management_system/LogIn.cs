@@ -62,7 +62,9 @@ namespace The_recruitment_profile_management_system
                         }
                         else if (id.StartsWith("NV"))
                         {
-                            
+                            DN_Menu mn = new DN_Menu(connectString);
+                            mn.ShowDialog();
+                            this.Show();
                         }
                         else if (id.StartsWith("DN"))
                         {
@@ -90,6 +92,11 @@ namespace The_recruitment_profile_management_system
         }
 
         private void LogIn_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
