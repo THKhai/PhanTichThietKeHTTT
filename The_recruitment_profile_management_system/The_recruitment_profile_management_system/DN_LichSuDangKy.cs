@@ -28,6 +28,8 @@ namespace The_recruitment_profile_management_system
             label5.Hide();
             label6.Hide();
             label7.Hide();
+            label8.Hide();
+            label9.Hide();
             try
             {
                 using (OracleConnection con = new OracleConnection(connectString))
@@ -83,13 +85,15 @@ namespace The_recruitment_profile_management_system
                                 label4.Text = "Mã TTDT: " + column2Value;
                                 label5.Text = "Hình thức đăng tuyển: " + column3Value;
                                 label6.Text = "Hình thức thanh toán: " + column4Value;
-                                label7.Text = "Tổng tiền: " + column5Value + "đ";
+                                label7.Text = "Tổng tiền: " + column5Value + " đ";
 
                                 label3.Show();
                                 label4.Show();
                                 label5.Show();
                                 label6.Show();
                                 label7.Show();
+                                label8.Show();
+                                label9.Show();
                             }
                             else
                             {
@@ -98,6 +102,8 @@ namespace The_recruitment_profile_management_system
                                 label5.Hide();
                                 label6.Hide();
                                 label7.Hide();
+                                label8.Hide();
+                                label9.Hide();
                             }
                         }
                     }

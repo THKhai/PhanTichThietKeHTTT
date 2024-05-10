@@ -112,22 +112,27 @@ select tt.*
 from ThongTinDangTuyen tt join QuangCao qc on tt.MaTTDT = qc.MaTTDT
 where upper(qc.MaSoThue) = SYS_CONTEXT('USERENV', 'SESSION_USER');
 
+create or replace view v_DNHoaDon
+as
+select qc.*
+from ThongTinDangTuyen tt join QuangCao qc on tt.MaTTDT = qc.MaTTDT
+where upper(qc.MaSoThue) = SYS_CONTEXT('USERENV', 'SESSION_USER');
 
 drop user DN12837a3d;
 create user DN12837a3d identified by 123;
 grant connect to DN12837a3d;
 grant select on v_DNDangky to DN12837a3d;
+grant select on v_DNHoaDon to DN12837a3d;
 grant select on ThongTinDangTuyen to DN12837a3d;
 grant insert on ThongTinDangTuyen to DN12837a3d;
 grant insert on QuangCao to DN12837a3d;
 
-select * from QuangCao
-select * from ThongTinDangTuyen
 connect DN12837a3d/123;
 select * from sys.v_DNDangky;
 
 select MAX(CAST(substr(MaTTDT, 3, length(MaTTDT) - 2) AS INT)) AS MaxValue
 FROM ThongTinDangTuyen;
+<<<<<<< Updated upstream
 
 
 drop user NV001;
@@ -155,3 +160,5 @@ grant select on sys.v_NhanVien_DoanhNghiepSapHetHan to NV001;
 
 conn NV001/NV001
 select * from sys.v_NhanVien_DoanhNghiepSapHetHan;
+=======
+>>>>>>> Stashed changes
