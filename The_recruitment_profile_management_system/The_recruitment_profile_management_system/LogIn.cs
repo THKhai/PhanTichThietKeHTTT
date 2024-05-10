@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
+using The_recruitment_profile_management_system.NhanVien_UI;
 
 namespace The_recruitment_profile_management_system
 {
@@ -20,6 +21,7 @@ namespace The_recruitment_profile_management_system
         string connectString = null;
         public LogIn()
         {
+
             InitializeComponent();
         }
 
@@ -63,7 +65,9 @@ namespace The_recruitment_profile_management_system
                         }
                         else if (id.StartsWith("NV"))
                         {
-                            
+                            NhanVien_Menu nhanVien_Menu = new NhanVien_Menu(connectString);
+                            nhanVien_Menu.ShowDialog();
+                            this.Show();
                         }
                         else if (id.StartsWith("DN"))
                         {
@@ -92,7 +96,7 @@ namespace The_recruitment_profile_management_system
 
         private void LogIn_Load(object sender, EventArgs e)
         {
-            
+            textBox2.PasswordChar = '*';
         }
     }
 }
