@@ -109,9 +109,15 @@ insert into QuangCao values ('DN53d1c452','DT00000005','Bao Giay','Chuyen Khoan'
 
 create or replace view v_DNDangky
 as
-select * from ThongTinDangTuyen
-where 
+select tt.*
+from ThongTinDangTuyen tt join QuangCao qc on tt.MaTTDT = qc.MaTTDT
+where upper(qc.MaSoThue) = SYS_CONTEXT('USERENV', 'SESSION_USER');
+
 drop user DN12837a3d;
 create user DN12837a3d identified by 123;
 grant connect to DN12837a3d;
+grant select on v_DNDangky to DN12837a3d;
+
+connect DN12837a3d/123;
+select * from sys.v_DNDangky;
 
