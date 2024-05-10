@@ -112,30 +112,35 @@ select tt.*
 from ThongTinDangTuyen tt join QuangCao qc on tt.MaTTDT = qc.MaTTDT
 where upper(qc.MaSoThue) = SYS_CONTEXT('USERENV', 'SESSION_USER');
 
+create or replace view v_DNHoaDon
+as
+select qc.*
+from ThongTinDangTuyen tt join QuangCao qc on tt.MaTTDT = qc.MaTTDT
+where upper(qc.MaSoThue) = SYS_CONTEXT('USERENV', 'SESSION_USER');
 
 drop user DN12837a3d;
 create user DN12837a3d identified by 123;
 grant connect to DN12837a3d;
 grant select on v_DNDangky to DN12837a3d;
+grant select on v_DNHoaDon to DN12837a3d;
 grant select on ThongTinDangTuyen to DN12837a3d;
 grant insert on ThongTinDangTuyen to DN12837a3d;
 grant insert on QuangCao to DN12837a3d;
---
---select * from QuangCao;
---select * from ThongTinDangTuyen;
---connect DN12837a3d/123;
---select * from sys.v_DNDangky;
---
---select MAX(CAST(substr(MaTTDT, 3, length(MaTTDT) - 2) AS INT)) AS MaxValue
---FROM ThongTinDangTuyen;
+
+connect DN12837a3d/123;
+select * from sys.v_DNDangky;
+
+select MAX(CAST(substr(MaTTDT, 3, length(MaTTDT) - 2) AS INT)) AS MaxValue
+FROM ThongTinDangTuyen;
+<<<<<<< Updated upstream
 
 
 drop user NV001;
 alter session set "_ORACLE_SCRIPT"=true; 
 create user NV001 identified by NV001;
 grant connect to NV001;
---
---select * from ThongTinDangTuyen;
+
+select * from ThongTinDangTuyen;
 
 update ThongTinDangTuyen
 set ThoiGianKetThuc = TO_DATE('12-05-2024','DD-MM-YYYY')
@@ -153,40 +158,7 @@ where TTDT.ThoiGianKetThuc - trunc(current_date) <= 3;
 
 grant select on sys.v_NhanVien_DoanhNghiepSapHetHan to NV001;
 
---conn NV001/NV001
---select * from sys.v_NhanVien_DoanhNghiepSapHetHan;
---/
-/
--------------------create user DoanhNghiep-------------------------
-CREATE OR REPLACE PROCEDURE USP_CREATEUSER_DN
-AS
-    CURSOR CUR IS (SELECT MaSoThue
-                    FROM DoanhNghiep
-                    WHERE UPPER(MaSoThue) NOT IN (SELECT USERNAME
-                                            FROM ALL_USERS)
-                );
-    STRSQL VARCHAR(2000);
-    USR VARCHAR2(10);
-BEGIN
-    OPEN CUR;
-        STRSQL := 'ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE' ;
-        EXECUTE IMMEDIATE(STRSQL);
-    LOOP
-        FETCH CUR INTO USR;
-        EXIT WHEN CUR%NOTFOUND;
-        STRSQL := 'CREATE USER  '||USR||' IDENTIFIED BY '||USR;
-        EXECUTE IMMEDIATE (STRSQL);
-    END LOOP;
-        STRSQL := 'ALTER SESSION SET "_ORACLE_SCRIPT" = FALSE';
-        EXECUTE IMMEDIATE(STRSQL);
-    CLOSE CUR;
-END;
-/
-exec USP_CREATEUSER_DN;
-create or replace view v_NV_NEWDN as
-select* from DoanhNghiep where UPPER(MaSoThue) not in (select grantee from DBA_ROLE_PRIVS where granted_role = 'CONNECT');
-grant select on v_NV_NEWDN to NV001;
-grant connect to NV001 with ADMIN OPTION;
-grant aLL PRIVILEGES on SYS.DoanhNghiep to NV001;
-connect NV001/NV001;
-delete from SYS.DoanhNghiep where MaSoThue = 'DNABC';
+conn NV001/NV001
+select * from sys.v_NhanVien_DoanhNghiepSapHetHan;
+=======
+>>>>>>> Stashed changes
