@@ -28,7 +28,9 @@ namespace The_recruitment_profile_management_system
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            DN_LichSuDangKy ls = new DN_LichSuDangKy(connectString);
+            ls.ShowDialog();
+            this.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)

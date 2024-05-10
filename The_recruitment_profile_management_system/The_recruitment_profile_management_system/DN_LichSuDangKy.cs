@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
+
 namespace The_recruitment_profile_management_system
 {
     public partial class DN_LichSuDangKy : Form
@@ -24,7 +25,7 @@ namespace The_recruitment_profile_management_system
             {
                 using (OracleConnection con = new OracleConnection(connectString))
                 {
-                    var query = "select * from dba_users order by USERNAME";
+                    var query = "select * from sys.v_DNDangky";
                     OracleDataAdapter adapter = new OracleDataAdapter(query, con);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
