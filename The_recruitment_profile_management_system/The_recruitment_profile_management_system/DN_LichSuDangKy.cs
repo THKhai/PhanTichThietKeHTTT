@@ -23,6 +23,9 @@ namespace The_recruitment_profile_management_system
         }
         private void DN_LichSuDangKy_Load(object sender, EventArgs e)
         {
+            richTextBox1.ReadOnly = true;
+            richTextBox1.HideSelection = true;
+
             label3.Hide();
             label4.Hide(); 
             label5.Hide();
