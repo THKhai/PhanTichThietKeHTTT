@@ -21,7 +21,7 @@ namespace The_recruitment_profile_management_system
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void DangKyThanhVien_Load(object sender, EventArgs e)
@@ -183,35 +183,90 @@ namespace The_recruitment_profile_management_system
         private  bool CheckValidTextBox()
         {
             Boolean valid = true;
+            // textbox1
             if (textBox1.Text == "Tên Công Ty")
             {
                 label2.ForeColor = Color.Red;
                 label2.Text = "Vui lòng nhập tên công ty";
                 valid = false;
             }
+            else if (textBox1.Text.Length >= 50 )
+            {
+                label2.ForeColor = Color.Red;
+                label2.Text = "Tối đa chỉ nhập 50 ký tự!!!";
+                valid = false;
+            }
+            else
+            {
+                label2.Text = "";
+            } 
+            //textbox2
             if (textBox2.Text == "Mã số thuế")
             {
                 label3.ForeColor = Color.Red;
                 label3.Text = "Vui lòng nhập mã số thuế của công ty";
                 valid = false;
             }
+            else if (textBox2.Text.Length >= 8)
+            {
+                label3.ForeColor = Color.Red;
+                label3.Text = "Tối đa chỉ nhập 8 ký tự!!!";
+                valid = false;
+            }
+            else
+            {
+                label3.Text = "";
+            }
+            //textbox3
             if (textBox3.Text == "Người đại diện")
             {
                 label4.ForeColor = Color.Red;
                 label4.Text = "Vui lòng nhập tên người đai diện";
                 valid = false;
             }
+            else if (textBox3.Text.Length >= 50)
+            {
+                label4.ForeColor = Color.Red;
+                label4.Text = "Tối đa chỉ nhập 50 ký tự!!!";
+                valid = false;
+            }
+            else
+            {
+                label4.Text = "";
+            }
+            //textbox4
             if (textBox4.Text == "Địa chỉ")
             {
                 label5.ForeColor = Color.Red;
                 label5.Text = "Vui lòng nhập Địa chỉ";
                 valid = false;
             }
+            else if (textBox4.Text.Length >= 50)
+            {
+                label5.ForeColor = Color.Red;
+                label5.Text = "Tối đa chỉ nhập 50 ký tự!!!";
+                valid = false;
+            }
+            else
+            {
+                label5.Text = "";
+            }
+            //textbox5
             if (textBox5.Text == "Email (VD: ABC@gmail.com)")
             {
                 label6.ForeColor = Color.Red;
                 label6.Text = "Vui lòng nhập Email";
                 valid = false;
+            }
+            else if (textBox5.Text.Length >= 50)
+            {
+                label6.ForeColor = Color.Red;
+                label6.Text = "Tối đa chỉ nhập 50 ký tự!!!";
+                valid = false;
+            }
+            else
+            {
+                label6.Text = "";
             }
             return valid;
         }
@@ -223,11 +278,14 @@ namespace The_recruitment_profile_management_system
                     using (OracleConnection conn = new OracleConnection(ConnectionStr))
                     {
                         conn.Open();
-                        string query = "insert into DoanhNghiep values ('DN" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "')";
+                        string query = "insert into DoanhNghiep values ('DN" + textBox2.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + textBox3.Text + "','" + textBox1.Text + "')";
                         OracleCommand cmd = new OracleCommand(query, conn);
                         cmd.ExecuteNonQuery();
-                        OracleCommand proc = new OracleCommand("USP_CREATEUSER_DN", conn);
+                        OracleCommand proc = new OracleCommand();
+                        proc.Connection = conn;
+                        proc.CommandText = "USP_CREATEUSER_DN";
                         proc.CommandType = CommandType.StoredProcedure;
+                        proc.ExecuteNonQuery(); 
                         
                     }
                     MessageBox.Show("Đăng ký thành công", "Thông Báo");
@@ -236,7 +294,10 @@ namespace The_recruitment_profile_management_system
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Đã xảy ra lỗi!" + ex.Message ,"Lỗi",MessageBoxButtons.OK);
+                   if (ex.Message == "ORA-00001: unique constraint (SYS.SYS_C008618) violated")
+                        MessageBox.Show("Mã số thuế đã tồn tại" ,"Lỗi",MessageBoxButtons.OK);
+                   else
+                        MessageBox.Show("Đã xảy ra lỗi", "Lỗi", MessageBoxButtons.OK);
                 }
             }
         }

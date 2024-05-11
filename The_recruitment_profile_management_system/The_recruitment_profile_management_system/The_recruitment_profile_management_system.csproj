@@ -123,9 +123,6 @@
     <EmbeddedResource Include="DN_Menu.resx">
       <DependentUpon>DN_Menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DuyetHoSoNhanVien\DuyetDKDN.resx">
-      <DependentUpon>DuyetDKDN.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>

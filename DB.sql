@@ -161,7 +161,7 @@ grant select on sys.v_NhanVien_DoanhNghiepSapHetHan to NV001;
 CREATE OR REPLACE PROCEDURE USP_CREATEUSER_DN
 AS
     CURSOR CUR IS (SELECT MaSoThue
-                    FROM DoanhNghiep
+                    FROM  DoanhNghiep
                     WHERE UPPER(MaSoThue) NOT IN (SELECT USERNAME
                                             FROM ALL_USERS)
                 );
@@ -184,9 +184,8 @@ END;
 /
 exec USP_CREATEUSER_DN;
 create or replace view v_NV_NEWDN as
-select* from DoanhNghiep where UPPER(MaSoThue) not in (select grantee from DBA_ROLE_PRIVS where granted_role = 'CONNECT');
+select* from DoanhNghiep where UPPER(MaSoThue) not in (select grantee from DBA_ROLE_PRIVS  where granted_role = 'CONNECT');
 grant select on v_NV_NEWDN to NV001;
 grant connect to NV001 with ADMIN OPTION;
+grant drop user to NV001;
 grant aLL PRIVILEGES on SYS.DoanhNghiep to NV001;
-connect NV001/NV001;
-delete from SYS.DoanhNghiep where MaSoThue = 'DNABC';

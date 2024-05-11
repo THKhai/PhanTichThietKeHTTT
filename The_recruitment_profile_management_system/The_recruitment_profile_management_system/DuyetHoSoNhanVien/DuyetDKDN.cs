@@ -33,7 +33,7 @@ namespace The_recruitment_profile_management_system.DuyetHoSoNhanVien
                     OracleCommand cmd = new OracleCommand(query,conn);
                     cmd.ExecuteNonQuery();
                 }
-
+                MessageBox.Show("Thao tác hoàn tất");
                 this.load_table();
             }
             catch(Exception ex)
@@ -89,11 +89,16 @@ namespace The_recruitment_profile_management_system.DuyetHoSoNhanVien
                     string query = "delete from SYS.DoanhNghiep where MaSoThue = '" + current +"'";
                     OracleCommand cmd = new OracleCommand(query, conn);
                     cmd.ExecuteNonQuery();
+                    string query1 = "alter session set \"_ORACLE_SCRIPT\" = true";
+                    OracleCommand que1 = new OracleCommand(query1, conn);
+                    que1.ExecuteNonQuery();
                     string query2 = "Drop user " + current.ToUpper();
                     OracleCommand cmd1 = new OracleCommand(query, conn);
                     cmd1.ExecuteNonQuery();
                 }
+                MessageBox.Show("Thao tác hoàn tất");
                 this.load_table();
+
             }
             catch(Exception ex)
             {
