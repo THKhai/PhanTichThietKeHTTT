@@ -278,14 +278,14 @@ namespace The_recruitment_profile_management_system
                     using (OracleConnection conn = new OracleConnection(ConnectionStr))
                     {
                         conn.Open();
-                        string query = "insert into DoanhNghiep values ('DN" + textBox2.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + textBox3.Text + "','" + textBox1.Text + "')";
+                        string query = "insert into DoanhNghiep values ('DN" + textBox2.Text.ToString() + "','" + textBox4.Text.ToString() + "','" + textBox5.Text.ToString() + "','" + textBox3.Text.ToString() + "','" + textBox1.Text.ToString() + "')";
                         OracleCommand cmd = new OracleCommand(query, conn);
                         cmd.ExecuteNonQuery();
                         OracleCommand proc = new OracleCommand();
                         proc.Connection = conn;
                         proc.CommandText = "USP_CREATEUSER_DN";
                         proc.CommandType = CommandType.StoredProcedure;
-                        proc.ExecuteNonQuery(); 
+                        proc.ExecuteNonQuery();
                         
                     }
                     MessageBox.Show("Đăng ký thành công", "Thông Báo");
@@ -297,7 +297,7 @@ namespace The_recruitment_profile_management_system
                    if (ex.Message == "ORA-00001: unique constraint (SYS.SYS_C008618) violated")
                         MessageBox.Show("Mã số thuế đã tồn tại" ,"Lỗi",MessageBoxButtons.OK);
                    else
-                        MessageBox.Show("Đã xảy ra lỗi", "Lỗi", MessageBoxButtons.OK);
+                        MessageBox.Show(ex.Message);
                 }
             }
         }

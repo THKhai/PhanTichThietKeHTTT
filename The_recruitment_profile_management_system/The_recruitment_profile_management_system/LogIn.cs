@@ -102,7 +102,7 @@ namespace The_recruitment_profile_management_system
         {
             SERVICE_NAME = "XE";
             id = "sys";
-            password = "091202";
+            password = "0971618896";
             connectString = $"Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=" + SERVICE_NAME + ")));User Id=" + id + ";Password=" + password + ";DBA Privilege = SYSDBA;";
             this.Hide();
             DangKyThanhVien dk = new DangKyThanhVien(connectString);

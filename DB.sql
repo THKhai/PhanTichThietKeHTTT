@@ -110,13 +110,19 @@ create or replace view v_DNDangky
 as
 select tt.*
 from ThongTinDangTuyen tt join QuangCao qc on tt.MaTTDT = qc.MaTTDT
-where upper(qc.MaSoThue) = SYS_CONTEXT('USERENV', 'SESSION_USER');
+where upper(qc.MaSoThue) = SYS_CONTEXT('USERENV', 'SESSION_USER') or qc.MaSoThue = SYS_CONTEXT('USERENV', 'SESSION_USER');
 
+create or replace view v_DNHoaDon
+as
+select qc.*
+from ThongTinDangTuyen tt join QuangCao qc on tt.MaTTDT = qc.MaTTDT
+where upper(qc.MaSoThue) = SYS_CONTEXT('USERENV', 'SESSION_USER') or qc.MaSoThue = SYS_CONTEXT('USERENV', 'SESSION_USER');
 
 drop user DN12837a3d;
 create user DN12837a3d identified by 123;
 grant connect to DN12837a3d;
 grant select on v_DNDangky to DN12837a3d;
+grant select on v_DNHoaDon to DN12837a3d;
 grant select on ThongTinDangTuyen to DN12837a3d;
 grant insert on ThongTinDangTuyen to DN12837a3d;
 grant insert on QuangCao to DN12837a3d;
@@ -134,6 +140,7 @@ drop user NV001;
 alter session set "_ORACLE_SCRIPT"=true; 
 create user NV001 identified by NV001;
 grant connect to NV001;
+
 --
 --select * from ThongTinDangTuyen;
 
@@ -176,6 +183,21 @@ BEGIN
         EXIT WHEN CUR%NOTFOUND;
         STRSQL := 'CREATE USER  '||USR||' IDENTIFIED BY '||USR;
         EXECUTE IMMEDIATE (STRSQL);
+
+        STRSQL := 'grant select on v_DNDangky to '||USR;
+        EXECUTE IMMEDIATE (STRSQL);
+
+        STRSQL := 'grant select on v_DNHoaDon to '||USR;
+        EXECUTE IMMEDIATE (STRSQL);
+
+        STRSQL := 'grant select on ThongTinDangTuyen to '||USR;
+        EXECUTE IMMEDIATE (STRSQL);
+        STRSQL := 'grant insert on ThongTinDangTuyen to '||USR;
+        EXECUTE IMMEDIATE (STRSQL);
+        STRSQL := 'grant select on QuangCao to '||USR;
+        EXECUTE IMMEDIATE (STRSQL);
+        STRSQL := 'grant insert on QuangCao to '||USR;
+        EXECUTE IMMEDIATE (STRSQL);
     END LOOP;
         STRSQL := 'ALTER SESSION SET "_ORACLE_SCRIPT" = FALSE';
         EXECUTE IMMEDIATE(STRSQL);
@@ -189,3 +211,19 @@ grant select on v_NV_NEWDN to NV001;
 grant connect to NV001 with ADMIN OPTION;
 grant drop user to NV001;
 grant aLL PRIVILEGES on SYS.DoanhNghiep to NV001;
+CONNECT NV001/NV001;
+
+DELETE FROM SYS.DoanhNghiep where MaSoThue = 'DN123123';
+DELETE FROM SYS.ThongTinDangTuyen where MaTTDT = 'DT0000001';
+DELETE FROM QuangCao where MaSoThue = 'DN123123';
+
+CONNECT DN123123/DN123123;
+SELECT *
+FROM sys.ThongTinDangTuyen tt join sys.QuangCao qc on tt.MaTTDT = qc.MaTTDT
+where upper(qc.MaSoThue) = 'DN123123'
+
+delete from ThongTinDangTuyen where MaTTDT = 'DT00000013';
+delete from QuangCao where MaTTDT = 'DT00000013';
+SELECT TO_char(SYS_CONTEXT('USERENV', 'SESSION_USER')) AS session_user FROM dual;
+
+

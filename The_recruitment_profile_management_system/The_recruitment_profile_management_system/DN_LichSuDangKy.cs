@@ -16,9 +16,11 @@ namespace The_recruitment_profile_management_system
     public partial class DN_LichSuDangKy : Form
     {
         string connectString;
-        public DN_LichSuDangKy(string connStr)
+        string MST;
+        public DN_LichSuDangKy(string connStr, string MaSoThue)
         {
             connectString = connStr;
+            MST = MaSoThue;
             InitializeComponent();
         }
         private void DN_LichSuDangKy_Load(object sender, EventArgs e)
@@ -37,7 +39,7 @@ namespace The_recruitment_profile_management_system
             {
                 using (OracleConnection con = new OracleConnection(connectString))
                 {
-                    var query = "select * from sys.v_DNDangky";
+                    var query = "select tt.* from sys.ThongTinDangTuyen tt join sys.QuangCao qc on tt.MaTTDT = qc.MaTTDT where upper(qc.MaSoThue) = '" + MST + "'";
                     OracleDataAdapter adapter = new OracleDataAdapter(query, con);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
@@ -64,7 +66,7 @@ namespace The_recruitment_profile_management_system
                 {
                     using (OracleConnection conn = new OracleConnection(connectString))
                     {
-                        string query = "SELECT * FROM sys.v_DNHoaDon where MaTTDT = '" + cellValue.ToString() + "'";
+                        string query = "select qc.* from sys.ThongTinDangTuyen tt join sys.QuangCao qc on tt.MaTTDT = qc.MaTTDT where upper(qc.MaSoThue) = '" + MST + "'";
                         OracleCommand cmd = new OracleCommand(query, conn);
 
                         // Add parameter for YourVariable
